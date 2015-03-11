@@ -1,33 +1,7 @@
 <?php
-
-//count by 2s to 100
-$a = 0;
-do {
-	$a += 2;
-	echo "$a \n";
-} while ($a + 2 <=100);
-
-
-//alter loop to count by 5s backwards to -10
-$a = 100;
-do {
-	$a -= 5;
-	echo $a . PHP_EOL;
-} while ($a - 5 >= -10);
-
-
-//Create a do-while loop that starts at 2, 
-//and displays the result $a * $a on each line 
-//while $a is less than 1,000,000. 
-$a = 2;
-do {
-	$a *= $a;
-	echo "$a \n";
-} while ($a < 1000000);
-
-
-//EXTRA? -- DO FIZZ BUZZ with a While Loop; 
+//Do FIZZ BUZZ with a While Loop; 
 //Do FIZZ BUZZ with a Do-While Loop;
+//Do FIZZ BUZZ with a For Loop;
 //start at 1 and count to 100
 //If number is multiple of 3, then output "Fizz"
 //If number is multiple of 5, then output "Buzz"
@@ -68,4 +42,22 @@ do {
 	echo "$a" . PHP_EOL;
 	$a++;
 } while ($a <= 100);
+
+
+for (i = 0; i <= 100; i++){
+	if ($i % 3 == 0 && $i % 5 == 0){
+		echo "FizzBuzz " . PHP_EOL;
+	} elseif ($i % 3 == 0){
+		echo "Fizz " . PHP_EOL;
+	} elseif ($i % 5 == 0){
+		echo "Buzz " . PHP_EOL;
+	} else {
+		echo $i . PHP_EOL;
+	}
+}
+
+
+
+
+
 
