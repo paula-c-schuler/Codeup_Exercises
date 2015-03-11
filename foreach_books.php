@@ -39,4 +39,22 @@ foreach ($books as $key => $book) {
 	echo "======================\n";
 }
 
+//Update your loop to only show books that were written after 1950.
+foreach ($books as $key => $book) {
+	
+	foreach ($book as $key2 => $value) {
+
+		if ($book['published'] > 1950){
+			echo $key . PHP_EOL;
+		}
+	}
+	echo "======================\n";
+}
+
+
+
+
+
+
+
 
