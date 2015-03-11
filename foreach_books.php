@@ -34,7 +34,9 @@ $books = array(
 foreach ($books as $key => $book) {
 	echo $key . " is a book. " . PHP_EOL;
 	foreach ($book as $key2 => $value) {
+		echo "$key2 is $value. " . PHP_EOL;
 	}
+	echo "======================\n";
 }
 
 
