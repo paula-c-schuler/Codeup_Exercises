@@ -31,9 +31,9 @@ $books = array(
 //and then each book's keys and values. 
 //Have it output the book's title, 
 //then list the key value pairs for the data about each book.
-foreach ($books as $book) {
-	foreach ($book as $key => $value) {
-		var_dump($value);
+foreach ($books as $key => $book) {
+	echo $key . " is a book. " . PHP_EOL;
+	foreach ($book as $key2 => $value) {
 	}
 }
 
