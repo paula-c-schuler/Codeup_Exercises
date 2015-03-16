@@ -6,23 +6,10 @@ $suits = ['C', 'H', 'S', 'D'];
 $cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 $name = '';
 $dealerName = 'Dealer';
+$playerName = 'Player';
 // initialize a dealer and player hand
 $dealer = [];
-$player = [];
-
-//engage with visitor
-fwrite(STDOUT, "Do you want to play Blackjack? (Y)es or (N)o ");
-$play = fgets(STDIN);
-if ($play == 'Y') {
-  getName();
-} 
-
-// name is the name of the player
-function getName () {
-    fwrite(STDOUT, "Player name is: ");
-    $name = fgets(STDIN);
-    return $name;
-}
+$player = []; 
 
 // build a deck (array) of cards
 // card values should be "VALUE SUIT". ex: "7 H"
@@ -33,7 +20,7 @@ function buildDeck($suits, $cards) {
             $deckOfCards[] = $value . ', ' . $suit;
         }
     }
-    $deckOfCards = shuffle($deckOfCards);
+    shuffle($deckOfCards);
     $deck = $deckOfCards;
     return $deck;
 }
@@ -51,14 +38,6 @@ function cardIsAce($card) {
   	return true; 
 	} else return false;
 	}
-
-
-function getCard($deck) {
-	foreach ($deck as $singleCard) {
-		$singleCard = array_shift($deck);
-	}
-	return $singleCard;
-}
 
 
 // determine the value of an individual card (string)
@@ -81,13 +60,12 @@ function getCardValue($card) {
 // don't forget to factor in aces
 // aces can be 1 or 11 (make them 1 if total value is over 21)
 function getHandTotal($hand) {
-    var_dump("in getHandTotal");
+    $handTotal = 0;
     foreach ($hand as $card) {
-        $handTotal += getCardValue($card[0]);
-        var_dump($handTotal);
-  }
+        $handTotal += (int)getCardValue($card[0]);
+    }
+    return $handTotal;
 }
-
 
 // draw a card from the deck into a hand
 // pass by reference (both hand and deck passed in are modified)
@@ -98,7 +76,7 @@ function drawCard (&$hand, &$deck) {
 }
 
 // print out a hand of cards
-print_r($hand);
+// print_r($hand);
 
 
 // hidden is to initially show only first card of hand (for dealer)
@@ -108,22 +86,15 @@ print_r($hand);
 // Player: [J D] [2 D] Total: 12
 
 function echoHand($hand, $name) {
+    $handTotal = getHandTotal($hand);
+    $faceValues = ' ';
     foreach ($hand as $card) {
-        echo {$name} . ": " . {$card} . " " . {$card} . " Total: {$handTotal}";
+        $faceValues .= "[" . " " . $card[0] . " " . "of" . " " . $card[1] . " " . "]";
+
+        $message = "$name:" . $faceValues . "Total: $handTotal" . PHP_EOL; 
     }
 }
 
-
-
-// function getTwoCards ($deck) {
-//     for ($i = 0; $i < 3; $i++) {
-//         $dealer += array_shift($deck);
-//     } for ($i = 0; $i < 3; $i++) {
-//         $player = array_shift($deck);
-//     } 
-//     return $player $dealer $deck;
-//     var_dump($player $dealer $deck);
-// }
 
 // obtain a player name, start the game
 // build the deck of cards
@@ -151,13 +122,19 @@ function echoHand($hand, $name) {
 // if dealer has more than player, dealer wins, otherwise, player wins
 
 
-$name = getName();
+
 $deck = buildDeck($suits, $cards);
-$card = getCard($deck);
+
+$dealer[] = array_shift($deck);
+$player[] = array_shift($deck);
+$dealer[] = array_shift($deck);
+$player[] = array_shift($deck);
+
+// $card = getCard($deck);
 $cardValue = getCardValue($card);
 echoHand($dealer, $dealerName);
-echoHand($player, $name);
+echoHand($player, $playerName);
 
-$handTotal = getHandTotal($hand);
-getHandTotal($hand);
+// $handTotal = getHandTotal($hand);
+// getHandTotal($hand);
 
