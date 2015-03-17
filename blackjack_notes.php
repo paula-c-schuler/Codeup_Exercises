@@ -14,10 +14,12 @@ $player = [];
 // build a deck (array) of cards
 // card values should be "VALUE SUIT". ex: "7 H"
 // make sure to shuffle the deck before returning it
-// THIS WORKS
-function buildDeck($suits, $cards) {
-    foreach ($cards as $value) {
-        foreach ($suits as $suit) {
+function buildDeck($suits, $cards) 
+{
+    foreach ($cards as $value) 
+    {
+        foreach ($suits as $suit) 
+        {
             $deckOfCards[] = $value . ' ' . $suit;
         }
     }
@@ -41,12 +43,11 @@ function buildDeck($suits, $cards) {
 // 	} else return false;
 // 	}
 
-
+//******************   DIFFICULT SECTION  ************************
 // determine the value of an individual card (string)
 // aces are worth 11
 // face cards are worth 10
 // numeric cards are worth their value
-// THIS WORKS
 function getCardValue($card) {
 	$cardValue = ' ';
     $cardArray = explode(' ', $card);
@@ -89,12 +90,52 @@ function getCardValue($card) {
         var_dump($cardValue);
         return $cardValue;
     }
-
-//TEST: 
-// $card = '2 H';
+    // code failed when I got to the numbers.
+    // tried switches, failed
+    // came back here and started over with just 'A'. It did not like it.
+    // reduced variable from $cardArray to $card, and it required another paren. 
+ 
+// ***   THE BUG WAS ***
+    // Probably numerous little things, but eventually I realized I used pop instead of shift,
+    // and it wasn't showing because of how I structured the feedback. 
+    // I was too sure I had that right. 
+    // Regardless, every time I got to numbers, it tended to fail, so I hard-coded those.
+//TEST:
+// $card = '2 C';   
+    // experimented with values of first element for results
 // getCardValue($card);
 
+    // Now with above code, I merely get an empty string, regardless of efforts 
+    // various cards 
+    // exploding, popping or not
+    // space in the new variable $cardValue or not
+    // adding a comma to the card array and explode
+    // checking if A or facecard or numeric, if it is an A, 
+    // it will var_dump the A in the if statement,
+    // then it will return an empty string for $cardValue...testing this
+    // I added quotes to make the number a string in the if statement and finally returned 
+    // something other than an empty string, an "11".
+
+    //****** COULD NOT GET VALUE OTHER THAN 10 REGARDLESS OF EFFORTS *****
+    // Entered various cards
+    // Last else or else if attempts
+    // Changed order of if statements
+    // Tried exploding
+    // Tried to index the first value of the new array of a card
+    // 
+
+    // if (#card == 'A') {
+    //     $cardValue = 11;
+    // } else if ($card == 'J' || $card == 'Q' || $card == 'K') {
+    //     $cardValue = 10;
+    // } else if ($cardValue) {
+    //     $cardValue = intval($card);
+    // }
+    //*************************************************************************************
+        
     
+
+
 
 // get total value for a hand of cards
 // don't forget to factor in aces
@@ -110,23 +151,16 @@ function getHandTotal($hand) {
     return $total;
 }
 
-
-
 // draw a card from the deck into a hand
 // pass by reference (both hand and deck passed in are modified)
 //NTS: HAND HAS MORE, DECK HAS LESS
-
-// function drawCard (&$hand, &$deck) {
-//     $hand = array_shift($deck);
-//     return ($hand);
-// }
-
-
+function drawCard (&$hand, &$deck) {
+    $hand = array_shift($deck);
+    return ($hand);
+}
 
 // print out a hand of cards
 // print_r($hand);
-
-
 
 
 // hidden is to initially show only first card of hand (for dealer)
@@ -140,16 +174,16 @@ function echoHand($hand, $name) {
     $total = getHandTotal($hand);
     var_dump($total . " is total of echoHand") . PHP_EOL;
     $faceValues = ' ';
-    // foreach ($hand as $card) {
-    //     var_dump($card . " is the card");
-    //     $faceValues .= "[" . " " . $card[0] . " " . "of" . " " . $card[1] . " " . "]";
+    foreach ($hand as $card) {
+        var_dump($card . " is the card");
+        $faceValues .= "[" . " " . $card[0] . " " . "of" . " " . $card[1] . " " . "]";
 
-    //     $message = "$name:" . $faceValues . "Total: $total" . PHP_EOL; 
-    // }
+        $message = "$name:" . $faceValues . "Total: $total" . PHP_EOL; 
+    }
 }
 
 
-
+// obtain a player name, start the game
 // build the deck of cards
 // dealer and player each draw two cards
 // echo the dealer hand, only showing the first card
@@ -180,17 +214,17 @@ function echoHand($hand, $name) {
 $deck = buildDeck($suits, $cards);
 
 $dealer[] = array_shift($deck);
-// $player[] = array_shift($deck);
+$player[] = array_shift($deck);
 $dealer[] = array_shift($deck);
-// $player[] = array_shift($deck);
+$player[] = array_shift($deck);
 var_dump($dealer);
 var_dump("the dealer dumped just above this");
-// var_dump($player);
-// var_dump("the player dumped just above this");
+var_dump($player);
+var_dump("the player dumped just above this");
 
 
-// $cardValue = getCardValue($card);
-// echoHand($dealer, $dealerName);
-// echoHand($player, $playerName);
+$cardValue = getCardValue($card);
+echoHand($dealer, $dealerName);
+echoHand($player, $playerName);
 
 
