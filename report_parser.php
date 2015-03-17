@@ -17,7 +17,28 @@ fclose($handle);
 $arrayOfLines = explode("\n", $contents);
 print_r($arrayOfLines);
 
+$reportTitle = array_shift($arrayOfLines);
+print_r($reportTitle);
+print_r($arrayOfLines);
 
+$reportDate = array_shift($arrayOfLines);
+print_r($reportDate);
+print_r($arrayOfLines);
+
+$reportOffice = array_shift($arrayOfLines);
+print_r($reportOffice);
+print_r($arrayOfLines);
+
+$employeeArray = array_splice($arrayOfLines, -7);
+print_r($employeeArray);
+print_r($arrayOfLines);
+
+$employeeCategories = $arrayOfLines[1];
+print_r($employeeCategories);
+print_r($arrayOfLines);
+
+$employeeKeyCategories = explode(', ', $employeeCategories);
+print_r($employeeKeyCategories);
 
 
 
