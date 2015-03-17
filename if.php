@@ -27,7 +27,7 @@ echo "hello world \n";
      echo "$b is equal to $c\n";
  } else if ($b === $c) {
      // output the appropriate result
-     echo "$b is not equal to $c\n";
+     echo "$b is not identical to $c\n";
  } else if ($b != $c) {
      // output the appropriate result
      echo "$b is not equal to $c\n";
@@ -35,8 +35,3 @@ echo "hello world \n";
      // output the appropriate result
      echo "$b is not identical to $c\n";
  }
-
-
-
-
-?>

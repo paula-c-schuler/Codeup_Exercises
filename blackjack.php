@@ -106,9 +106,10 @@ function getHandTotal($hand) {
         if ($card == 11 && $hand >= 11) {
             $card += 1;
         } else $total += getCardValue($card);
-    }
-    return $total;
-}
+    } 
+    return $total; 
+} 
+
 
 
 
