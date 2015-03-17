@@ -19,46 +19,66 @@ print_r($arrayOfLines);
 
 $reportTitle = array_shift($arrayOfLines);
 print_r($reportTitle);
-print_r($arrayOfLines);
 
 $reportDate = array_shift($arrayOfLines);
 print_r($reportDate);
-print_r($arrayOfLines);
 
 $reportOffice = array_shift($arrayOfLines);
 print_r($reportOffice);
-print_r($arrayOfLines);
-
-$employeeArray = array_splice($arrayOfLines, -7);
-print_r($employeeArray);
-print_r($arrayOfLines);
 
 $employeeCategories = $arrayOfLines[1];
-print_r($employeeCategories);
-print_r($arrayOfLines);
-
 $employeeKeyCategories = explode(', ', $employeeCategories);
 print_r($employeeKeyCategories);
 
+$employeeArray = array_splice($arrayOfLines, -7);
+print_r($employeeArray);
 
+function raiseUpEmployees($employeeArray) {
+	echo ("in raiseUpEmployees");
+	foreach ($employeeArray as $key => $value) {
+		print_r($value);
+//to string
+		$employees = explode(', ', $value);
+		print_r($employees);
+//to array
+		return $employees; 
+		}
 
+		***** STOPPED HERE NOT DONE YET *****
+		** GOING TO POP OFF ALL EMPLOYEE DETAILS TO 
+		INDEPENDENT VARIABLES **
 
+		$firstName = "";
+		$firstName += "$employee[$i]";
+		var_dump($firstName);
+		print_r($firstName);
+		
+		
+	
+		
+		}
 
-// function removeTrash ($arrayOfLines) {
-// 	print_r($arrayOfLines);
-// 	foreach ($arrayOfLines as $key => $value) {
-// 		if(($key = array_search('=', $array)) !== FALSE) {
-// 			echo 'found one';
-// 			// unset($array[$key]);
+	}
+
+$firstName = raiseUpEmployees($employeeArray);
+
+//merge first and last names of employees
+// function mergeEmployeeNames ($employeeArray) {
+// 	echo $employeeArray;
+// 	foreach ($employeeArray as $employee) {	
+// 		foreach ($employee as $info) {
+// 			$firstName = "";
+// 			$firstName = array_splice($info[1]);
+// 			print_r($firstName);
+// 			print_r($info);
+// 			// $lastName = "";
+// 			// $lastName = array_splice($info[2]);
+// 			// $fullName = "";
+			
 // 		}
 // 	}
-// 	// 	$foundTrash = in_array("*", $arrayOfLines);
-// 	// 	print_r($foundTrash);
-// 	// return $cleanArrayOfLines;
-	
 // }
-
-
+// mergeEmployeeNames($employeeArray);
 
 
 
