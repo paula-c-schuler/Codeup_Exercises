@@ -1,7 +1,7 @@
 <?php
 // Output should be ordered by units in descending order
 // Column headers should appear in the following format
-// Office Name | Date | Report Name
+// Report Name | Office Name | Date
 // Total Units | Full Name | Employee Number
 // First character of items under first character of header
 // source file is 'data/report.txt'
@@ -22,6 +22,7 @@ $officeHeader = "{$reportTitle} . '|' . {$reportOffice} . '|' . {$reportDate} . 
 
 $employeeCategoriesArray[] = $arrayOfLines[1];
 
+
 $employeeArray = array_splice($arrayOfLines, -7);
 // var_dump($employeeArray);
 
@@ -33,7 +34,10 @@ foreach ($employeeArray as $key => $value) {
 	$employeeName = implode(' ', $eachEmployeeArray);
 }
 var_dump($eachEmployeeArray);
-var_dump($employeeName);
+
+HOW DO 
+
+
 
 
 		

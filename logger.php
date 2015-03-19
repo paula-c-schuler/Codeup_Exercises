@@ -1,14 +1,14 @@
 <?php
 //*** EXERCISE COMPLETE -- WRITING TO A FILE ***
 function logMessage($logLevel, $message) {
-	$filedate = date('Y-m-d');
-	var_dump($filedate);
-    $filename = 'log-' . $filedate . '.txt';
-
-    $dateTime = date('Y-m-d h:i:s');
+	$fileDate = date('Y-m-d');
+	$time = date('h:i:s');
+	var_dump($fileDate);
+    $filename = 'log-' . $fileDate . '.txt';
+    
 	$handle = fopen($filename, 'a+');
 	
-    fwrite($handle, PHP_EOL . $dateTime . ' [' . $logLevel . '], ' . $message);
+    fwrite($handle, PHP_EOL . $fileDate . ' ' . $time . ' [' . $logLevel . '], ' . $message);
 	fclose($handle);
 }
 
