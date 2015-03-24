@@ -1,0 +1,9 @@
+
+2015-03-24 08:27:59 [], 
+2015-03-24 08:30:02 [freakyFriday], Howdy Friday
+2015-03-24 08:32:54 [freakyFriday], Howdy Friday
+2015-03-24 08:32:54 [INFO], This is an info message.
+2015-03-24 08:32:54 [ERROR], This is an info message.
+2015-03-24 08:32:59 [freakyFriday], Howdy Friday
+2015-03-24 08:32:59 [INFO], This is an info message.
+2015-03-24 08:32:59 [ERROR], This is an info message.

@@ -1,5 +1,5 @@
 <?php
-//*** EXERCISE COMPLETE -- WRITING TO A FILE ***
+//*** EXERCISE 6.6.2 COMPLETE -- WRITING TO A FILE ***
 function logMessage($logLevel, $message) {
 	$fileDate = date('Y-m-d');
 	$time = date('h:i:s');

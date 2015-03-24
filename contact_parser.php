@@ -1,45 +1,55 @@
 <?php
 // ********* NOT DONE ********
 
-$filename = '/vagrant/exercises/data/contacts.txt';
-$handle = fopen($filename, 'r');
-$contents = fread($handle, filesize($filename));
-fclose($handle);
 
-print_r($contents);
-// NTS:  THE CONTENTS ARE A SINGLE STRING WITH NEW LINE CODE
 
-function parseContacts($contents) {
-	$firstExplosion = explode('\n', $contents);
-	print_r($firstExplosion) . PHP_EOL;
-	$countLength = count($firstExplosion);
-	print_r($countLength . " is length of firstExplosion");
-	// $contentsArray = [];
-	// $contentsArray = explode("|", $contents);
-	// print_r($contentsArray);
-	// var_dump($contentsArray);
-	$arrayZero = [];
-	$arrayOne = [];
-	$arrayTwo = [];
+function parseContacts($contentsArray) {
+	$filename = '/vagrant/exercises/data/contacts.txt';
+	$handle = fopen($filename, 'r');
+	$contentsArray = fread($handle, filesize($filename));
+	fclose($handle);
+
+
+	$peopleArray = explode("\n", $contentsArray);
+
+	function getDetailsArray ($peopleArray) {
+		foreach ($peopleArray as $value) {
+			$detailsArray = explode('|', $value);
+		}
+		applyKeys($detailsArray);
+		return $detailsArray;
+	}
+	function applyKeys ($detailsArray) {
+		$keyArray = ['Name: ', 'Phone: '];
+		foreach ($detailsArray as $value) {
+			$hasKeysArray = array_combine($keyArray, $detailsArray);
+		}
+	formatPhone($hasKeysArray);
+	return $hasKeysArray;
+	}
+	function formatPhone($hasKeysArray) {
+		foreach ($hasKeysArray as $key => $value) {
+			# code...
+		}
+
+	}
+	
+	
+
 	
 	// foreach ($contents as $content) {
 	// 	create array based on iteration
 	// 	array_pop($contents) 
 	// 	var_dump(expression) 
 	}
-parseContacts($contents);
+parseContacts($contentsArray);
 // ****************** NOT DONE ****************
 
-	// In class discussion, I made the mistake of exploding on pipe at first,
-	// instead of the new line contained within the single string of contents.
-
-
-// *** Max used a substring (substr(string, start)) to create his display
 // *** Jaime used array_combine(keys, values)
 // *** Isaac built a new array like this $newArray[][]; passed $key to first with "Name" second.
 // *** Isaac used another function to format the phone number, passed the number and returned.
-// * Try to find a way to wrap the whole thing functions and all in one function. 
-// * NTS: THIS IS AN IMPORTANT EXERCISE WITH ENDLESS POSSIBILITIES FOR HOW. ****************
+
+
 // * ISAAC TIP There is a pattern sorting toolbox at www.regexr.com "Regular Expressions"
 
 // ***  THINKING  ***

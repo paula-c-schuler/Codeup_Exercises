@@ -1,3 +1,0 @@
-
-2015-03-18 07:39:11 [INFO], This is an info message.
-2015-03-18 07:39:11 [ERROR], This is an info message.
