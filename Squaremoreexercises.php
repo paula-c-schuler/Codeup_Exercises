@@ -1,11 +1,14 @@
 <?php 
 // EXERCISE 9.2.1 DONE ---   THIS FILE HOLDS THE CLASS DEFINITION
-// EXERCISE 9.2.
+// EXERCISE 9.2.2 DONE ---
+
+
 
 // bring the parent class
-require_once 'rectangle.php';
+require_once 'Rectanglemoreexercises.php';
 
-class Square extends Rectangle 
+
+class Squaremoreexercises extends Rectanglemoreexercises 
 {
 	
 	public function __construct($height)
@@ -20,7 +23,7 @@ class Square extends Rectangle
 
 	public function area()
     {
-        return ($this->height * $this->width);
+        return ($this->height * $this->height);
 	}
 }
 

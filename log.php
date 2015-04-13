@@ -1,16 +1,28 @@
 <?php  
-// *** EXERCISE 7.3 COMPLETED, WORKING ***
-// *** EXERCISE 7.3.1  COMPLETED  CONSTRUCTORS/DESTRUCTORS,   ***
+// EXERCISE 7.3    COMPLETED
+// EXERCISE 7.3.1  COMPLETED  CONSTRUCTORS/DESTRUCTORS
+// EXERCISE 9.2.3 
+
+
 class Log 
 {
-	public $filename = '$prefix-YYYY-MM-DD.log';
-	public $handle;
+	protected $filename = '$prefix-YYYY-MM-DD.log';
+	protected $handle;
+
+	public function set($fileName) {
+		if (!is_string($fileName)) {
+
+		}
+	}
+
 
 	// constructor is first function, good practice
 	public function __construct ($prefix = 'log') 
+
 	// $prefix = 'log' is how a default is set for a function,
 	// if a parameter is not actually passed for $prefix.
 	{
+
 		date_default_timezone_set('America/Chicago');
 		$this->filename = $prefix . ' ' . date("Y-m-d-s") . '-.log';
 		$this->handle = fopen($this->filename, 'a+');
@@ -22,13 +34,12 @@ class Log
 
 		$fileDate = date('Y-m-d');
 		$time = date('h:i:s');
-		// var_dump($fileDate);
-	    // $filename = 'log-' . $fileDate . '.txt'; *** ACTION MOVED TO __construct
+		
 	    
-		// $handle = fopen($this->filename, 'a+'); *** ACTION MOVED TO __construct
+	   
 		var_dump($this->handle);
 	    fwrite($this->handle, PHP_EOL . $fileDate . ' ' . $time . ' [' . $logLevel . '], ' . $message);
-		// fclose($handle); *** ACTION MOVED TO __destruct
+		
 	}
 
 	
