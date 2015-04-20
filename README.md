@@ -7,3 +7,6 @@ This is my personal repository of exercises I have completed.
 - CSS
 - Bootstrap
 - Javascript
+- jQuery
+- PHP
+- MySQL
